@@ -63,13 +63,17 @@ class ZscaleSystem extends Module {
 class ZscaleTop extends Module {
   val io = new Bundle {
     val host = new HTIFIO
+    val bootmem = new HASTISlaveIO().flip
+    val led = new POCIIO
   }
 
   val sys = Module(new ZscaleSystem)
-  val bootmem = Module(new HASTISRAM(params(BootROMCapacity)/4))
+//  val bootmem = Module(new HASTISRAM(params(BootROMCapacity)/4))
   val dram = Module(new HASTISRAM(params(DRAMCapacity)/4))
 
   sys.io.host <> io.host
-  bootmem.io <> sys.io.bootmem
   dram.io <> sys.io.dram
+
+  io.bootmem <> sys.io.bootmem
+  io.led <> sys.io.led
 }

@@ -221,7 +221,7 @@ class WithZscale extends ChiselConfig(
     }
     case UseZscale => true
     case BootROMCapacity => Dump("BOOT_CAPACITY", 16*1024)
-    case DRAMCapacity => Dump("DRAM_CAPACITY", 64*1024*1024)
+    case DRAMCapacity => Dump("DRAM_CAPACITY", 16*1024)
   }
 )
 
@@ -252,5 +252,6 @@ class SmallConfig extends ChiselConfig (
 )
 
 class DefaultFPGASmallConfig extends ChiselConfig(new SmallConfig ++ new DefaultFPGAConfig)
+class ZscaleFPGASmallConfig extends ChiselConfig(new ZscaleConfig ++ new DefaultFPGASmallConfig)
 
 class ExampleSmallConfig extends ChiselConfig(new SmallConfig ++ new DefaultConfig)
