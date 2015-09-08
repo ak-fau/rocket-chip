@@ -1,3 +1,7 @@
+Clone of usb-bar/rocket-chip
+
+See branch 'bemicro' for local changes.
+
 Rocket Chip Generator [![Build Status](https://travis-ci.org/ucb-bar/rocket-chip.svg?branch=master)](https://travis-ci.org/ucb-bar/rocket-chip)
 =====================
 
